@@ -14,7 +14,15 @@ namespace ShoppingList
     {
         public AddItem()
         {
-            InitializeComponent();
+            InitializeComponent(); this.CenterToScreen();
+            this.SetControls();
+        }
+
+        private void SetControls()
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void ImpBtn_Click(object sender, EventArgs e)
@@ -42,9 +50,6 @@ namespace ShoppingList
 
         }
 
-        private void CloseBtn_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void CloseBtn_Click(object sender, EventArgs e) { this.Dispose(); }
     }
 }

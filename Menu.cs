@@ -14,22 +14,30 @@ namespace ShoppingList
     {
         public MenuForm()
         {
-            InitializeComponent();
+            InitializeComponent(); this.CenterToScreen();
+            this.SetControls();
+        }
+
+        private void SetControls()
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            Calendar.Scale(2, 2);
         }
 
         private void AddItemBtn_Click(object sender, EventArgs e)
         {
-
+            AddItem frmAdd = new AddItem(); //Show the form
+            frmAdd.ShowDialog();
         }
 
         private void PrevBtn_Click(object sender, EventArgs e)
         {
-
+            ItemsForm frmItem = new ItemsForm(); //Show the form
+            frmItem.ShowDialog();
         }
 
-        private void CloseBtn_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void CloseBtn_Click(object sender, EventArgs e) {this.Dispose();}
     }
 }
