@@ -39,6 +39,10 @@ namespace ShoppingList
             this.ItemList = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.AddBtn = new System.Windows.Forms.Button();
+            this.StarBtn = new System.Windows.Forms.Button();
+            this.RemovBtn = new System.Windows.Forms.Button();
+            this.CloseBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -130,11 +134,51 @@ namespace ShoppingList
             this.label4.TabIndex = 9;
             this.label4.Text = "Previously Bought Items";
             // 
+            // AddBtn
+            // 
+            this.AddBtn.Location = new System.Drawing.Point(15, 620);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(94, 37);
+            this.AddBtn.TabIndex = 10;
+            this.AddBtn.Text = "Add Item";
+            this.AddBtn.UseVisualStyleBackColor = true;
+            // 
+            // StarBtn
+            // 
+            this.StarBtn.Location = new System.Drawing.Point(132, 617);
+            this.StarBtn.Name = "StarBtn";
+            this.StarBtn.Size = new System.Drawing.Size(81, 40);
+            this.StarBtn.TabIndex = 11;
+            this.StarBtn.Text = "Star Item";
+            this.StarBtn.UseVisualStyleBackColor = true;
+            // 
+            // RemovBtn
+            // 
+            this.RemovBtn.Location = new System.Drawing.Point(230, 617);
+            this.RemovBtn.Name = "RemovBtn";
+            this.RemovBtn.Size = new System.Drawing.Size(83, 38);
+            this.RemovBtn.TabIndex = 12;
+            this.RemovBtn.Text = "Remove Item";
+            this.RemovBtn.UseVisualStyleBackColor = true;
+            // 
+            // CloseBtn
+            // 
+            this.CloseBtn.Location = new System.Drawing.Point(586, 616);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(69, 36);
+            this.CloseBtn.TabIndex = 13;
+            this.CloseBtn.Text = "Close";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            // 
             // ItemsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 669);
+            this.Controls.Add(this.CloseBtn);
+            this.Controls.Add(this.RemovBtn);
+            this.Controls.Add(this.StarBtn);
+            this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ItemList);
@@ -164,5 +208,9 @@ namespace ShoppingList
         private System.Windows.Forms.ListBox ItemList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button AddBtn;
+        private System.Windows.Forms.Button StarBtn;
+        private System.Windows.Forms.Button RemovBtn;
+        private System.Windows.Forms.Button CloseBtn;
     }
 }
