@@ -10,19 +10,34 @@ using System.Windows.Forms;
 
 namespace ShoppingList
 {
-    public partial class ItemsForm : Form
+    public partial class AddItem : Form
     {
-        public ItemsForm()
+        public AddItem()
         {
             InitializeComponent();
         }
 
-        private void AddStarBtn_Click(object sender, EventArgs e)
+        private void ImpBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void RemStarBtn_Click(object sender, EventArgs e)
+        private void ExpBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RemovBtn_Click(object sender, EventArgs e)
         {
 
         }
