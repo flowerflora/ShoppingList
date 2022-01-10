@@ -29,14 +29,11 @@ namespace ShoppingList
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.Date = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.ImpBtn = new System.Windows.Forms.Button();
             this.ExpBtn = new System.Windows.Forms.Button();
-            this.ShopList = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.RecList = new System.Windows.Forms.ListBox();
-            this.ItemList = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -45,14 +42,28 @@ namespace ShoppingList
             this.CloseBtn = new System.Windows.Forms.Button();
             this.NameTxt = new System.Windows.Forms.TextBox();
             this.PriceTxt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ShopDG = new System.Windows.Forms.DataGridView();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemsDG = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecDG = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.ShopDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemsDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecDG)).BeginInit();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // Date
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(13, 28);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(242, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.Date.Location = new System.Drawing.Point(13, 28);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(242, 20);
+            this.Date.TabIndex = 0;
             // 
             // label1
             // 
@@ -83,17 +94,6 @@ namespace ShoppingList
             this.ExpBtn.UseVisualStyleBackColor = true;
             this.ExpBtn.Click += new System.EventHandler(this.ExpBtn_Click);
             // 
-            // ShopList
-            // 
-            this.ShopList.AllowDrop = true;
-            this.ShopList.BackColor = System.Drawing.SystemColors.Window;
-            this.ShopList.FormattingEnabled = true;
-            this.ShopList.HorizontalScrollbar = true;
-            this.ShopList.Location = new System.Drawing.Point(12, 90);
-            this.ShopList.Name = "ShopList";
-            this.ShopList.Size = new System.Drawing.Size(643, 199);
-            this.ShopList.TabIndex = 4;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -102,23 +102,6 @@ namespace ShoppingList
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Shopping List";
-            // 
-            // RecList
-            // 
-            this.RecList.FormattingEnabled = true;
-            this.RecList.HorizontalScrollbar = true;
-            this.RecList.Location = new System.Drawing.Point(12, 330);
-            this.RecList.Name = "RecList";
-            this.RecList.Size = new System.Drawing.Size(301, 199);
-            this.RecList.TabIndex = 6;
-            // 
-            // ItemList
-            // 
-            this.ItemList.FormattingEnabled = true;
-            this.ItemList.Location = new System.Drawing.Point(331, 330);
-            this.ItemList.Name = "ItemList";
-            this.ItemList.Size = new System.Drawing.Size(324, 199);
-            this.ItemList.TabIndex = 7;
             // 
             // label3
             // 
@@ -132,7 +115,7 @@ namespace ShoppingList
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(328, 312);
+            this.label4.Location = new System.Drawing.Point(338, 312);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 13);
             this.label4.TabIndex = 9;
@@ -184,7 +167,6 @@ namespace ShoppingList
             this.NameTxt.Name = "NameTxt";
             this.NameTxt.Size = new System.Drawing.Size(168, 20);
             this.NameTxt.TabIndex = 14;
-            this.NameTxt.Text = "Enter Item Name";
             // 
             // PriceTxt
             // 
@@ -192,13 +174,107 @@ namespace ShoppingList
             this.PriceTxt.Name = "PriceTxt";
             this.PriceTxt.Size = new System.Drawing.Size(180, 20);
             this.PriceTxt.TabIndex = 15;
-            this.PriceTxt.Text = "Enter Item Price";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 561);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Enter Item Name";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(208, 561);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Enter Item Price";
+            // 
+            // ShopDG
+            // 
+            this.ShopDG.AllowUserToResizeColumns = false;
+            this.ShopDG.AllowUserToResizeRows = false;
+            this.ShopDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ShopDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ShopDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Item,
+            this.Price});
+            this.ShopDG.Location = new System.Drawing.Point(12, 94);
+            this.ShopDG.Name = "ShopDG";
+            this.ShopDG.Size = new System.Drawing.Size(643, 202);
+            this.ShopDG.TabIndex = 18;
+            // 
+            // Item
+            // 
+            this.Item.HeaderText = "Item";
+            this.Item.Name = "Item";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            // 
+            // ItemsDG
+            // 
+            this.ItemsDG.AllowUserToResizeColumns = false;
+            this.ItemsDG.AllowUserToResizeRows = false;
+            this.ItemsDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ItemsDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ItemsDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.ItemsDG.Location = new System.Drawing.Point(341, 330);
+            this.ItemsDG.Name = "ItemsDG";
+            this.ItemsDG.Size = new System.Drawing.Size(314, 202);
+            this.ItemsDG.TabIndex = 19;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Item";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // RecDG
+            // 
+            this.RecDG.AllowUserToResizeColumns = false;
+            this.RecDG.AllowUserToResizeRows = false;
+            this.RecDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.RecDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.RecDG.Location = new System.Drawing.Point(12, 330);
+            this.RecDG.Name = "RecDG";
+            this.RecDG.Size = new System.Drawing.Size(301, 202);
+            this.RecDG.TabIndex = 20;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Item";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // AddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 669);
+            this.Controls.Add(this.RecDG);
+            this.Controls.Add(this.ItemsDG);
+            this.Controls.Add(this.ShopDG);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.PriceTxt);
             this.Controls.Add(this.NameTxt);
             this.Controls.Add(this.CloseBtn);
@@ -207,16 +283,16 @@ namespace ShoppingList
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.ItemList);
-            this.Controls.Add(this.RecList);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.ShopList);
             this.Controls.Add(this.ExpBtn);
             this.Controls.Add(this.ImpBtn);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.Date);
             this.Name = "AddItem";
             this.Text = "Add Items";
+            ((System.ComponentModel.ISupportInitialize)(this.ShopDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemsDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,14 +300,11 @@ namespace ShoppingList
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker Date;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ImpBtn;
         private System.Windows.Forms.Button ExpBtn;
-        private System.Windows.Forms.ListBox ShopList;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox RecList;
-        private System.Windows.Forms.ListBox ItemList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button AddBtn;
@@ -240,5 +313,16 @@ namespace ShoppingList
         private System.Windows.Forms.Button CloseBtn;
         private System.Windows.Forms.TextBox NameTxt;
         private System.Windows.Forms.TextBox PriceTxt;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView ShopDG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridView ItemsDG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridView RecDG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }
