@@ -44,18 +44,20 @@ namespace ShoppingList
             this.PriceTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.ShopDG = new System.Windows.Forms.DataGridView();
-            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemsDG = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecDG = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.ShopDG)).BeginInit();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ShopDG = new System.Windows.Forms.DataGridView();
+            this.RmStarBtn = new System.Windows.Forms.Button();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsDG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShopDG)).BeginInit();
             this.SuspendLayout();
             // 
             // Date
@@ -133,7 +135,7 @@ namespace ShoppingList
             // 
             // StarBtn
             // 
-            this.StarBtn.Location = new System.Drawing.Point(132, 617);
+            this.StarBtn.Location = new System.Drawing.Point(232, 619);
             this.StarBtn.Name = "StarBtn";
             this.StarBtn.Size = new System.Drawing.Size(81, 40);
             this.StarBtn.TabIndex = 11;
@@ -143,7 +145,7 @@ namespace ShoppingList
             // 
             // RemovBtn
             // 
-            this.RemovBtn.Location = new System.Drawing.Point(230, 617);
+            this.RemovBtn.Location = new System.Drawing.Point(128, 619);
             this.RemovBtn.Name = "RemovBtn";
             this.RemovBtn.Size = new System.Drawing.Size(83, 38);
             this.RemovBtn.TabIndex = 12;
@@ -193,30 +195,6 @@ namespace ShoppingList
             this.label6.TabIndex = 17;
             this.label6.Text = "Enter Item Price";
             // 
-            // ShopDG
-            // 
-            this.ShopDG.AllowUserToResizeColumns = false;
-            this.ShopDG.AllowUserToResizeRows = false;
-            this.ShopDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ShopDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ShopDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Item,
-            this.Price});
-            this.ShopDG.Location = new System.Drawing.Point(12, 94);
-            this.ShopDG.Name = "ShopDG";
-            this.ShopDG.Size = new System.Drawing.Size(643, 202);
-            this.ShopDG.TabIndex = 18;
-            // 
-            // Item
-            // 
-            this.Item.HeaderText = "Item";
-            this.Item.Name = "Item";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            // 
             // ItemsDG
             // 
             this.ItemsDG.AllowUserToResizeColumns = false;
@@ -265,11 +243,52 @@ namespace ShoppingList
             this.dataGridViewTextBoxColumn4.HeaderText = "Price";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            // 
+            // Item
+            // 
+            this.Item.HeaderText = "Item";
+            this.Item.Name = "Item";
+            // 
+            // ShopDG
+            // 
+            this.ShopDG.AllowUserToResizeColumns = false;
+            this.ShopDG.AllowUserToResizeRows = false;
+            this.ShopDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ShopDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ShopDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Item,
+            this.Price,
+            this.Count});
+            this.ShopDG.Location = new System.Drawing.Point(12, 94);
+            this.ShopDG.Name = "ShopDG";
+            this.ShopDG.Size = new System.Drawing.Size(643, 202);
+            this.ShopDG.TabIndex = 18;
+            // 
+            // RmStarBtn
+            // 
+            this.RmStarBtn.Location = new System.Drawing.Point(340, 620);
+            this.RmStarBtn.Name = "RmStarBtn";
+            this.RmStarBtn.Size = new System.Drawing.Size(77, 36);
+            this.RmStarBtn.TabIndex = 21;
+            this.RmStarBtn.Text = "Remove Star";
+            this.RmStarBtn.UseVisualStyleBackColor = true;
+            this.RmStarBtn.Click += new System.EventHandler(this.RmStarBtn_Click);
+            // 
+            // Count
+            // 
+            this.Count.HeaderText = "Count";
+            this.Count.Name = "Count";
+            // 
             // AddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 669);
+            this.Controls.Add(this.RmStarBtn);
             this.Controls.Add(this.RecDG);
             this.Controls.Add(this.ItemsDG);
             this.Controls.Add(this.ShopDG);
@@ -290,9 +309,9 @@ namespace ShoppingList
             this.Controls.Add(this.Date);
             this.Name = "AddItem";
             this.Text = "Add Items";
-            ((System.ComponentModel.ISupportInitialize)(this.ShopDG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsDG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShopDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,14 +334,16 @@ namespace ShoppingList
         private System.Windows.Forms.TextBox PriceTxt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView ShopDG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridView ItemsDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridView RecDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
+        private System.Windows.Forms.DataGridView ShopDG;
+        private System.Windows.Forms.Button RmStarBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
     }
 }

@@ -32,7 +32,9 @@ namespace ShoppingList
 
         private void RemStarBtn_Click(object sender, EventArgs e)
         {
-
+            DataGridViewSelectedRowCollection row = ItemDG.SelectedRows;
+            foreach(DataGridViewRow rows in row)
+            ItemDG.Rows.Remove(rows);
         }
 
         private void CloseBtn_Click(object sender, EventArgs e) { this.Dispose(); }

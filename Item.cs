@@ -13,15 +13,15 @@ namespace ShoppingList
         Double Price;
         String Name;
         Boolean Star;
-        public void Item() {
+        public Item() {
             List<int[]> Dates = new List<int[]>();
             Double Price = 0.0;
             String Name = "";
             Boolean Star = false;
         }
-        public void UpdateDates(ArrayList n)
+        public void UpdateDates(int[][] n)
         {
-
+            Dates.Add(n); Dates.Sort();
         }
 
         public void SetPrice(double input)
@@ -32,7 +32,7 @@ namespace ShoppingList
         public Boolean PredictItem(int[] D)
         {
             int dSize = Dates.Count;
-            int[][] Date2 = new int[dSize][3]; Date2 = (int[][])Dates.ToArray();
+            int[][] Date2 = new int[dSize][]; Date2 = (int[][]) Dates.ToArray();// as int[][];
             int[] diff = new int[dSize-1];
         for (int i = 0; i < dSize - 1; i++)
             {
@@ -49,7 +49,7 @@ namespace ShoppingList
                 else { counter++; }
             }
             mean = mean / (dSize-1-counter);
-            return (365 * (Date2[dSize][0] - D[0]) + 30 * (Date2[dSize][2] - D[1]) + Date2[dSize][2] - D[2]) > mean - mean / 7); //there is a mean/7 to give some leeway
+            return ((365 * (Date2[dSize][0] - D[0]) + 30 * (Date2[dSize][2] - D[1]) + Date2[dSize][2] - D[2]) > mean - mean / 7); //there is a mean/7 to give some leeway
         }
     }
 }
