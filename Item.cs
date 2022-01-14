@@ -9,7 +9,7 @@ namespace ShoppingList
 {
     class Item
     {
-        ArrayList Dates;
+        List<int[]> Dates;
         Double Price;
         String Name;
         Boolean Star;
@@ -19,9 +19,20 @@ namespace ShoppingList
             String Name = "";
             Boolean Star = false;
         }
+        public Item(List<int[]> datee, double price, string name, Boolean star)
+        {
+            Dates =  datee;
+             Price = price;
+            Name = name;
+             Star = star;
+        }
         public void UpdateDates(int[][] n)
         {
             Dates.Add(n); Dates.Sort();
+        }
+        public void StarItem()
+        {
+            Star=true;
         }
 
         public void SetPrice(double input)
@@ -49,7 +60,7 @@ namespace ShoppingList
                 else { counter++; }
             }
             mean = mean / (dSize-1-counter);
-            return ((365 * (Date2[dSize][0] - D[0]) + 30 * (Date2[dSize][2] - D[1]) + Date2[dSize][2] - D[2]) > mean - mean / 7); //there is a mean/7 to give some leeway
+            return Star || ((365 * (Date2[dSize][0] - D[0]) + 30 * (Date2[dSize][2] - D[1]) + Date2[dSize][2] - D[2]) > mean - mean / 7); //there is a mean/7 to give some leeway
         }
     }
 }

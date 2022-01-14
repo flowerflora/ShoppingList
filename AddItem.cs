@@ -28,9 +28,26 @@ namespace ShoppingList
 
         private void ImpBtn_Click(object sender, EventArgs e)
         {
+            string _file = string.Empty;
+            OpenFileDialog openDialog = new OpenFileDialog();
 
+            //Set Tile of OpenFileDialog
+            openDialog.Title = "Select An Excel File";
+
+            //Set the File Filter of OpenFileDialog
+            openDialog.Filter = "Excel 7.0 (*.xlsx)|*.xlsx" + "|" +
+                                "Excel (*.xls)|*.xls" + "|" +
+                                "CSV (*.csv)|*.csv" + "|" +
+                                "All Files (*.*)|*.*";
+
+            //Get the OK press of the Dialog Box
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Get Selected File
+                _file = openDialog.FileName;
+                this.txtFile.Text = _file;
+            }
         }
-
         private void ExpBtn_Click(object sender, EventArgs e)
         {
 
@@ -45,7 +62,7 @@ namespace ShoppingList
                 { ShopDG.Rows.Add(rows); RecDG.Rows.Remove(rows); }
                 DataGridViewSelectedRowCollection row2 = ItemsDG.SelectedRows;
                 foreach (DataGridViewRow rows2 in row2)
-                { ShopDG.Rows.Add(rows2); ItemsDG.Rows.Remove(rows2); }
+                { ShopDG.Rows.Add(rows2);  ItemsDG.Rows.Remove(rows2);}
             }
             else if(String.IsNullOrEmpty(NameTxt.Text)) MessageBox.Show("Please Enter Item Name");
             else
@@ -53,6 +70,17 @@ namespace ShoppingList
                 ShopDG.Rows.Add(NameTxt.Text,PriceTxt.Text,1);
                 //find object, if no object, make new one, add to list
                 //update list
+                 List<int[]> addition = new List<int[]>(); addition.Add(Date.Text.Split('/').Select(Int32.Parse).ToArray());
+                Item adding = new ShoppingList.Item(addition , Convert.ToDouble(PriceTxt.Text), NameTxt.Text, false);
+                for (int i=0; i < (Data.Data.Rows).Count; i++)
+                {
+                    if (NameTxt.Text.Equals(ItemsDG.Columns[0][i]))
+                    {
+                         adding =ItemsDG.Columns[0][i]; 
+                        break;
+                    }
+                    
+                }
             }
         }
 
@@ -63,6 +91,17 @@ namespace ShoppingList
             {
                 RecDG.Rows.Add(NameTxt.Text, PriceTxt.Text);
                 //find object, if no object, make new one, add star
+                List<int[]> addition = new List<int[]>(); addition.Add(Date.Text.Split('/').Select(Int32.Parse).ToArray());
+                Item adding = new ShoppingList.Item(addition, Convert.ToDouble(PriceTxt.Text), NameTxt.Text, true);
+                for (int i = 0; i < (Data.Data.Rows).Count; i++)
+                {
+                    if (NameTxt.Text.Equals(ItemsDG.Columns[0][i]))
+                    {
+                        adding = ItemsDG.Columns[0][i];
+                        break;
+                    }
+
+                } adding.StarItem();
                 //update list
             }
 
@@ -76,7 +115,10 @@ namespace ShoppingList
             { ShopDG.Rows.Remove(rows); ItemsDG.Rows.Add(rows); }
         }
 
-        private void CloseBtn_Click(object sender, EventArgs e) { this.Dispose(); }
+        private void CloseBtn_Click(object sender, EventArgs e) {
+            this.Dispose();
+        //update database with shopping list
+        }
 
         private void RmStarBtn_Click(object sender, EventArgs e)
         {
